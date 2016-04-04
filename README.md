@@ -1,11 +1,10 @@
 # ubicomp16-SmartFridge
-Add project description here
+
 Application allowing to check if the door is closed or open. Through this application as the user opens the door the image is captured.
 
 # Contributors
-Vignesh Dhamodaran
-Avnesh Reddy Pundru
-Ragarsha Velmula
+>Vignesh Dhamodaran
+>Avnesh Reddy Pundru
+>Ragarsha Velmula
 
-# Progress (Week 3/28)
-Add progress here
+
