@@ -6,5 +6,7 @@
     <string name="gravityNote">Movement:</string>
     <string name="textView">TextView</string>
     <string name="orientationNote">Orientation:</string>
+    <string name="doorOpen">Door is open</string>
+    <string name="doorClosed">Door is Closed</string>
 
 </resources>
