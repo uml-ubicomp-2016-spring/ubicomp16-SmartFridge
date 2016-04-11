@@ -23,4 +23,4 @@ Application allowing to check if the door is closed or open. Through this applic
 [x] Implemented OpenCV with the Video Capture Module which starts the face detection Module the module builds and complies all the native code. Since Android Studio just started to support NDK and cannot ship the entire library with the app and depends on opencv Manager app there is a dependency issue.<br />
 ###Ragarsha Velmula
 [x] Worked on Solving the OpenCV manager app and SmartFridge Application Linkage issue.<br />
-[x] Implementing Backed for the app<br />
+[x] Implementing Backend using Nodejs for the app<br />
