@@ -18,11 +18,9 @@ Application allowing to check if the door is closed or open. Through this applic
 [x] Implemented Video Capture in android and wanted to merge the app as an intent call from the sensor changed door open call.<br />
 
 ## Progress 4/5/16 - 4/11/16
-###Vignesh Dhamodaran
+###Vignesh Dhamodaran and ###Anvesh Reddy
 [x] Added the VideoCapture for the app sensor based call to start the Face detetction Service. Had to rewrite video capture written by Anvesh since opencv uses an entirely different Approach.<br />
 [x] Implemented OpenCV with the Video Capture Module which starts the face detection Module the module builds and complies all the native code. Since Android Studio just started to support NDK and cannot ship the entire library with the app and depends on opencv Manager app there is a dependency issue.<br />
 ###Ragarsha Velmula
 [x] Worked on Solving the OpenCV manager app and SmartFridge Application Linkage issue.<br />
 [x] Implementing Backed for the app<br />
-###Anvesh Reddy 
-[x]<br />
