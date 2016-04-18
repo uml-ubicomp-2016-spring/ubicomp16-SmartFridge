@@ -29,3 +29,6 @@ Application allowing to check if the door is closed or open. Through this applic
 ###Vignesh Dhamodaran 
 [x] Worked on fixing the opencv error and considering google vison API for face detection and tracking. <br />
 [x] Working on google Vision implementation for face detection and tracking.
+###Ragarsha Velmula
+[x] Trying to create a RestFull Api server in Express and Node.js. <br/>
+[x] For quering and persisting data connecting a MongoDB database to the API server.
