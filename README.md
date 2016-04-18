@@ -27,5 +27,5 @@ Application allowing to check if the door is closed or open. Through this applic
 
 ## Progress 4/12/16 - 4/18/16
 ###Vignesh Dhamodaran 
-[x] Worked on fixing the opencv error and considering google vison API for face detection and tracking.
+[x] Worked on fixing the opencv error and considering google vison API for face detection and tracking. <br />
 [x] Working on google Vision implementation for face detection and tracking.
