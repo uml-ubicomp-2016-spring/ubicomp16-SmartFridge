@@ -32,3 +32,5 @@ Application allowing to check if the door is closed or open. Through this applic
 ###Ragarsha Velmula
 [x] Trying to create a RestFull Api server in Express and Node.js. <br/>
 [x] For quering and persisting data connecting a MongoDB database to the API server.
+###Anvesh Reddy 
+[x] Working on sending data from android application to server and then storing the same in a mysql database on the server.
