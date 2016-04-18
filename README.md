@@ -24,3 +24,8 @@ Application allowing to check if the door is closed or open. Through this applic
 ###Ragarsha Velmula
 [x] Worked on Solving the OpenCV manager app and SmartFridge Application Linkage issue.<br />
 [x] Implementing Backend using Nodejs for the app<br />
+
+## Progress 4/12/16 - 4/18/16
+###Vignesh Dhamodaran 
+[x] Worked on fixing the opencv error and considering google vison API for face detection and tracking.
+[x] Working on google Vision implementation for face detection and tracking.
