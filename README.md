@@ -41,5 +41,5 @@ Application allowing to check if the door is closed or open. Through this applic
 [x] Implemented the service for uploading the data to server <br/>
 [x] Optimized Code in terms of synchronised calls and added implemented IntentManger to call intents efficeiently<br/>
 ###Ragarsha Velmula
-
-###Anvesh Reddy 
+[x] Encountered trouble using the MongoDB database, had to avert to mysql database.
+[x] Image representation on the website is still the only issue. 
