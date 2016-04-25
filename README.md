@@ -34,3 +34,12 @@ Application allowing to check if the door is closed or open. Through this applic
 [x] For quering and persisting data connecting a MongoDB database to the API server.
 ###Anvesh Reddy 
 [x] Working on sending data from android application to server and then storing the same in a mysql database on the server.
+
+## Progress 4/19/16 - 4/25/16
+###Vignesh Dhamodaran 
+[x] Implemented Face detection and tracking using google vision api <br/>
+[x] Implemented the service for uploading the data to server <br/>
+[x] Optimized Code in terms of synchronised calls and added implemented IntentManger to call intents efficeiently<br/>
+###Ragarsha Velmula
+
+###Anvesh Reddy 
