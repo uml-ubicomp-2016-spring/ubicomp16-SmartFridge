@@ -21,10 +21,10 @@ import com.google.android.gms.vision.Tracker;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
 
-import ubicomp.cs.uml.edu.smartfridge.camera.GraphicOverlay;
-import ubicomp.cs.uml.edu.smartfridge.camera.CameraPreview;
-
 import java.io.IOException;
+
+import ubicomp.cs.uml.edu.smartfridge.camera.CameraPreview;
+import ubicomp.cs.uml.edu.smartfridge.camera.GraphicOverlay;
 
 /**
  * Created by Vignesh on 4/18/16.
@@ -104,7 +104,7 @@ public class FaceTrackerActivity extends Activity {
 
         mCameraSource = new CameraSource.Builder(context, detector)
                 .setRequestedPreviewSize(640, 480)
-                .setFacing(CameraSource.CAMERA_FACING_BACK)
+                .setFacing(CameraSource.CAMERA_FACING_FRONT)
                 .setRequestedFps(30.0f)
                 .build();
     }

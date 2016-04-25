@@ -9,7 +9,6 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
-import android.util.FloatMath;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,6 +41,9 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
     private TextView magY;
     private TextView magZ;
 
+    //Intent Handlers
+    private IntentManager intentManager;
+
     private int Orientation;
 
     //yaw pitch and roll
@@ -69,7 +71,7 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
     private float doorVelCurrent;
     private float doorVelLast;
 
-    //Time Stamp
+    //Time S
     private String timeStamp;
     private String outputFile;
 
@@ -83,6 +85,8 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         try {
+
+            intentManager = new IntentManager();
             //Text Views for Showing Outputs
             accX = (TextView) findViewById(R.id.textView01);
             accY = (TextView) findViewById(R.id.textView02);
@@ -105,6 +109,8 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
             doorVel = 0.00f;
             doorVelCurrent = 0.01f;
             doorVelLast = 0.01f;
+
+            Thread.sleep(1000);
 
         }
 
@@ -149,6 +155,8 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
         int id = item.getItemId();
         //No Settings Menu As of Now
         if (id == R.id.action_settings) {
+            Intent myIntent = new Intent(SensorActivity.this, FaceTrackerActivity.class);
+            SensorActivity.this.startActivity(myIntent);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -200,12 +208,9 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
                     float newMat[]=new float[16];
                     SensorManager.getRotationMatrix(newMat, null, lastAcclerometer, lastMagnetometer);
 
-                    if(Orientation==0||Orientation==2){
-                        SensorManager.remapCoordinateSystem(newMat,SensorManager.AXIS_X*-1, SensorManager.AXIS_MINUS_Y*-1,newMat);
-                    }
-                    else{
+
                         SensorManager.remapCoordinateSystem(newMat,SensorManager.AXIS_Y, SensorManager.AXIS_MINUS_X,newMat);
-                    }
+
 
                     //Calcuting Yaw, Pitch and Roll using Eulers Angles Equation https://en.wikipedia.org/wiki/Euler_angles
                     rmYaw = Math.toDegrees(Math.atan2(newMat[4], newMat[0]));
@@ -226,27 +231,32 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
                     doorVelLast = doorVelCurrent;
                     doorVelCurrent = (float) Math.sqrt(rmYaw*rmYaw+rmPitch*rmPitch+rmRoll*rmRoll - SensorManager.GRAVITY_EARTH);
                     float d = doorVelCurrent - doorVelLast;
-                    doorVel = doorVel * 0.09f + doorVelCurrent * 0.01f;
+                    doorVel = doorVel * 0.09f + (d*d) * 0.01f;
 
                     //Toast.makeText(getApplicationContext(), String.valueOf(doorVel), Toast.LENGTH_SHORT).show();
 
                     Status.setText(String.valueOf(Math.round(doorVel) ));
 
                     //Call to Video Capture Methodology
-                    if (((rmPitch >= -85.0)||(rmPitch  <= 105.0)) && (doorVel >= 2))
+                    if (((rmRoll >= -85.0)&&(rmPitch  <= 100.0)) && (doorVel >= 6.0))
                     {
                         Banner.setText(R.string.doorOpen);
-//                        Intent myIntent = new Intent(SensorActivity.this, FaceTrackerActivity.class);
-//                        SensorActivity.this.startActivity(myIntent);
-                        //Toast.makeText(getApplicationContext(), String.valueOf("intent calling"), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(SensorActivity.this,FaceTrackerActivity.class);
+
+                        synchronized (intent) {
+                            Toast.makeText(getApplicationContext(), String.valueOf("called"), Toast.LENGTH_SHORT).show();
+                            intentManager.handleCall(this,intent);
+
+                            //Toast.makeText(getApplicationContext(), String.valueOf("intent calling"), Toast.LENGTH_SHORT).show();
+                        }
 
                     }
                     else{
                         Banner.setText(R.string.doorClosed);
-                        //@Anvesh Add Function Call to Stop Video
+                        synchronized (this) {
+                            //Destroy The intent
+                        }
                     }
-
-
                 }
                 //Error Management
                 else {

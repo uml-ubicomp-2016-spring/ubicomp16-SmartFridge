@@ -2,7 +2,7 @@
 
     <string name="app_name">SmartFridge</string>
     <string name="hello_world">Checking Angle and Movement</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">OpenFD</string>
     <string name="gravityNote">Movement:</string>
     <string name="textView">TextView</string>
     <string name="orientationNote">Orientation:</string>

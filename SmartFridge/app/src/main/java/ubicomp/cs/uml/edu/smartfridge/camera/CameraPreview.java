@@ -78,8 +78,6 @@ public class CameraPreview extends ViewGroup {
                 int min = Math.min(size.getWidth(), size.getHeight());
                 int max = Math.max(size.getWidth(), size.getHeight());
                 if (isPortraitMode()) {
-                    // Swap width and height sizes when in portrait, since it will be rotated by
-                    // 90 degrees
                     mOverlay.setCameraInfo(min, max, mCameraSource.getCameraFacing());
                 } else {
                     mOverlay.setCameraInfo(max, min, mCameraSource.getCameraFacing());
