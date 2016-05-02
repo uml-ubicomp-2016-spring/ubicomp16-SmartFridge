@@ -1,0 +1,36 @@
+﻿      <div class="container">
+        <div id="container" ng-app='two_way' ng-controller='two_way_control'>
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Smart Fridge</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+          </nav>
+          <div class="row" ng-repeat="data in user_names">
+            <div class=".col-sm-6 .col-md-5 .col-lg-6" style="background-color:#eee;height:150px;width:500px;margin-left:240px;margin-top:20px;">
+              <h4 style="padding:10px;border-style: solid;border-color: blue;">
+              <p style="padding:10px;">
+               Timestamp: {{data.image_date}} <br>
+               Happiness quotient: {{data.happiness}}
+              </p>
+              </h4><hr>
+              <img src="{{data.user_image}}" class="img-circle" style="width:100px;height:100px;margin-left:-140px;margin-top:-130px;">
+            </div>
+          </div>
+          <br>
+          <p style="padding-left: 200px;"><a class="btn btn-primary">Logout</a></p>
+        </div>
+      </div>
