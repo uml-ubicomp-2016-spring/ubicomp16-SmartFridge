@@ -20,13 +20,15 @@
 <li>strings.xml</li>
 </ul>
 ###Web
-<ul>
 ####Views
+<ul>
 <li>index.html</>
 <li>register.view.html</li>
 <li>login.view.html</li>
 <li>home.view.html</li>
+</ul>
 ####Controllers
+<ul>
 <li>Server.js</li>
 <li>app.js</li>
 <li>register.controller.js</li>
