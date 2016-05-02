@@ -14,20 +14,24 @@ public class IntentManager {
     private SensorActivity srActivity;
     Timer timer = new Timer();
 
+    //Handling the door open or close requests based on the sensor change
     public void handleCall(SensorActivity sensorActivity, Intent intent) {
         srActivity = sensorActivity;
         Log.i("Out ", String.valueOf(status));
         if (!isHold()) {
             Log.i("In ", String.valueOf(status));
+            //Calling create intent to forward the activity
             createIntent(sensorActivity, intent);
         } else {
             synchronized (intent) {
+                //Releasing the synchronised hold if the door is closed
                 status = releaseHold();
             }
         }
     }
 
-    private boolean releaseHold() {
+    //Releasing the hold if the door is closed to make it go back to the sensor activity
+    public boolean releaseHold() {
 
         if (status == true) {
             return false;
@@ -37,7 +41,7 @@ public class IntentManager {
 
     }
 
-
+    //Creating Intent to the face detection Activity
     private void createIntent(SensorActivity sensorActivity, Intent toIntent) {
         try {
             status = true;
@@ -52,10 +56,11 @@ public class IntentManager {
         }
     }
 
-
+    //Checking the hold status
     private boolean isHold() {
         return status;
     }
+
 
 
 }

@@ -8,16 +8,16 @@
     android:layout_height="match_parent"
     android:keepScreenOn="true">
 
-    <ubicomp.cs.uml.edu.smartfridge.camera.CameraPreview
+    <ubicomp.cs.uml.edu.smartfridge.utils.PreviewCamera
         android:id="@+id/preview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ubicomp.cs.uml.edu.smartfridge.camera.GraphicOverlay
+        <ubicomp.cs.uml.edu.smartfridge.utils.CanvasGraphicsEmbedder
             android:id="@+id/faceOverlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </ubicomp.cs.uml.edu.smartfridge.camera.CameraPreview>
+    </ubicomp.cs.uml.edu.smartfridge.utils.PreviewCamera>
 
 </LinearLayout>

@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -23,6 +22,10 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Created by Vignesh Dhamodaran on 3/26/16.
+ */
+
 public class SensorActivity extends AppCompatActivity implements SensorEventListener {
 
     //Variable Declaration
@@ -31,15 +34,6 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
     private TextView Banner;
     private TextView Status;
 
-    //Accelerometer Values
-    private TextView accX;
-    private TextView accY;
-    private TextView accZ;
-
-    //Orientation Values
-    private TextView magX;
-    private TextView magY;
-    private TextView magZ;
 
     //Intent Handlers
     private IntentManager intentManager;
@@ -88,19 +82,11 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
 
             intentManager = new IntentManager();
             //Text Views for Showing Outputs
-            accX = (TextView) findViewById(R.id.textView01);
-            accY = (TextView) findViewById(R.id.textView02);
-            accZ = (TextView) findViewById(R.id.textView03);
 
-            magX = (TextView) findViewById(R.id.textView04);
-            magY = (TextView) findViewById(R.id.textView05);
-            magZ = (TextView) findViewById(R.id.textView06);
+            Banner = (TextView) findViewById(R.id.textView);
+            Banner.setText("Door Closed");
 
-            Banner = (TextView) findViewById(R.id.textView2);
-            Status = (TextView) findViewById(R.id.textView);
-
-            accX.setText("initial test string");
-
+            //Timestamp for csv output
             timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
             outputFile =Environment.getExternalStorageDirectory().getAbsolutePath()+File.separator+timeStamp+".csv";
             writer = new StringBuilder();
@@ -155,7 +141,7 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
         int id = item.getItemId();
         //No Settings Menu As of Now
         if (id == R.id.action_settings) {
-            Intent myIntent = new Intent(SensorActivity.this, FaceTrackerActivity.class);
+            Intent myIntent = new Intent(SensorActivity.this, FaceDetectionActivity.class);
             SensorActivity.this.startActivity(myIntent);
             return true;
         }
@@ -164,27 +150,26 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
 
     @Override
     public void onAccuracyChanged(Sensor arg0, int arg1) {
-        //Do Nothing
+        //Nothing needs to be done over here
 
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-//         synchronized (this) {
             try{
+
                 NumberFormat nf = NumberFormat.getNumberInstance();
                 nf.setMaximumFractionDigits(1);
+
+                //Getting the orientation of the device
                 Orientation = getResources().getConfiguration().orientation;
+
                 //Getting the Accelerometer Values
                 if (event.sensor == AccSensor){
 
                     lastAcclerometer[0]=(lastAcclerometer[0]*2+event.values[0])*0.33334f;
                     lastAcclerometer[1]=(lastAcclerometer[1]*2+event.values[1])*0.33334f;
                     lastAcclerometer[2]=(lastAcclerometer[2]*2+event.values[2])*0.33334f;
-
-                    accX.setText("x: "+ nf.format(lastAcclerometer[0]));
-                    accY.setText("y: "+ nf.format(lastAcclerometer[1]));
-                    accZ.setText("z: " + nf.format(lastAcclerometer[2]));
 
                     hasAccelerometerSet = true;
                 }
@@ -193,6 +178,7 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
                 else if (event.sensor == MagSensor) {
 
                     if (hasAccelerometerSet) {
+                        //Forming a rotational matrix
                         SensorManager.getRotationMatrix(mRotMat, null, lastAcclerometer, lastMagnetometer);
                         SensorManager.getOrientation(mRotMat, lastMagnetometer);
                         lastMagnetometer[0]=(lastMagnetometer[0]*1+event.values[0])*0.5f;
@@ -202,25 +188,18 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
 
                     }
                 }
+
                 //Detect the door status
                 if((event.sensor == MagSensor) || (event.sensor == AccSensor))
                 {
                     float newMat[]=new float[16];
                     SensorManager.getRotationMatrix(newMat, null, lastAcclerometer, lastMagnetometer);
-
-
-                        SensorManager.remapCoordinateSystem(newMat,SensorManager.AXIS_Y, SensorManager.AXIS_MINUS_X,newMat);
-
+                    SensorManager.remapCoordinateSystem(newMat,SensorManager.AXIS_Y, SensorManager.AXIS_MINUS_X,newMat);
 
                     //Calcuting Yaw, Pitch and Roll using Eulers Angles Equation https://en.wikipedia.org/wiki/Euler_angles
                     rmYaw = Math.toDegrees(Math.atan2(newMat[4], newMat[0]));
                     rmPitch = Math.toDegrees(Math.acos(-newMat[8]));
                     rmRoll = Math.toDegrees(Math.atan2(newMat[9], newMat[10]));
-
-                    magX.setText("yaw: " + (int) Math.round(rmYaw));
-                    magY.setText("pitch: " + (int) Math.round(rmPitch));
-                    magZ.setText("roll: " + (int) Math.round(rmRoll));
-
 
                     writer.append(nf.format(lastAcclerometer[0]) + "," + nf.format(lastAcclerometer[1]) + "," + nf.format(lastAcclerometer[1]) + ","+nf.format(rmYaw) + "," + nf.format(rmPitch) + "," + nf.format(rmRoll) + "\n");
 
@@ -235,27 +214,21 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
 
                     //Toast.makeText(getApplicationContext(), String.valueOf(doorVel), Toast.LENGTH_SHORT).show();
 
-                    Status.setText(String.valueOf(Math.round(doorVel) ));
-
                     //Call to Video Capture Methodology
-                    if (((rmRoll >= -85.0)&&(rmPitch  <= 100.0)) && (doorVel >= 6.0))
+                    if ((rmRoll >= -85.0)&&(rmPitch  <= 100.0) && (doorVel >= 6.0) )
                     {
-                        Banner.setText(R.string.doorOpen);
-                        Intent intent = new Intent(SensorActivity.this,FaceTrackerActivity.class);
+                        Banner.setText("Door Opened");
+                        Intent intent = new Intent(SensorActivity.this,FaceDetectionActivity.class);
 
                         synchronized (intent) {
-                            Toast.makeText(getApplicationContext(), String.valueOf("called"), Toast.LENGTH_SHORT).show();
+
                             intentManager.handleCall(this,intent);
 
-                            //Toast.makeText(getApplicationContext(), String.valueOf("intent calling"), Toast.LENGTH_SHORT).show();
                         }
 
                     }
                     else{
-                        Banner.setText(R.string.doorClosed);
-                        synchronized (this) {
-                            //Destroy The intent
-                        }
+                        Banner.setText("Door Closed");
                     }
                 }
                 //Error Management
@@ -268,8 +241,6 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
                 th.printStackTrace();
             }
         }
-//    }
-
 
     // Implementation of Low Pass to reduce noise of Sensor Data
     private float[] lowpass(float[] sensorInput, float[] sensorOutput) {
