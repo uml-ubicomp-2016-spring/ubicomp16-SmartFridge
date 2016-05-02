@@ -4,11 +4,11 @@
 <ul>
 <li>SensorActivity.java</li>
 <li>IntentManager.java</li>
-<li>FaceTrackerActivity.java</li>
+<li>FaceDetectionActivity.java</li>
 <li>UploadActivity.java</li>
-<li>FaceGraphic.java</li>
-<li>CameraPreview.java</li>
-<li>GraphicOverlay.java</li>
+<li>CanvasGraphics.java</li>
+<li>PreviewCamera.java</li>
+<li>CanvasGraphicsEmbedder.java</li>
 </ul>
 ####Layout and values
 <ul>
