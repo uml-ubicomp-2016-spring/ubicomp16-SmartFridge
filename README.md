@@ -2,6 +2,8 @@
 
 Application allowing to check if the door is closed or open. Through this application as the user opens the door the image is captured.
 
+Demo on [Youtube](https://www.youtube.com/watch?v=GB-xDLorPS0)<br />
+
 ## Contributors
 + [Vignesh Dhamodaran] (http://github.com/vignesh24)<br />
 + [Avnesh Reddy Pundru] (http://github.com/Anveshreddy55) <br />
@@ -43,3 +45,14 @@ Application allowing to check if the door is closed or open. Through this applic
 ###Ragarsha Velmula
 [x] Encountered trouble using the MongoDB database, had to avert to mysql database. </br>
 [x] Image representation on the website is still the only issue. 
+
+## Progress 4/26/16 - 5/2/16
+###Vignesh Dhamodaran 
+[x] Implemented Happiness scale for faces detected
+[x] Integrated Mobile app with Backend
+###Ragarsha Velmula
+[x] Sovled the imge representation issue
+[x] Integrated with the WebApp with Mobile App
+###Anvesh Reddy 
+[x] Tested and implemented the upload to server from mobile app
+
