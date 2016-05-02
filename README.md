@@ -49,11 +49,11 @@ Demo on [Youtube](https://www.youtube.com/watch?v=GB-xDLorPS0)<br />
 ## Progress 4/26/16 - 5/2/16
 ###Vignesh Dhamodaran 
 [x] Implemented Happiness scale for faces detected <br />
-[x] Integrated Mobile app with Backend.
+[x] Integrated Mobile app with Backend <br />
 [x] Tested and verifed mobile app working
 ###Ragarsha Velmula
-[x] Sovled the image representation issue
-[x] Integrated with the WebApp with Mobile App
+[x] Sovled the image representation issue <br />
+[x] Integrated with the WebApp with Mobile App <br />
 [x] Tested and verifed web app working
 ###Anvesh Reddy 
 [x] Tested and implemented the upload to server from mobile app
