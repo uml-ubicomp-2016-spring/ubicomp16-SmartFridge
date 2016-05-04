@@ -1,19 +1,43 @@
-## Project Goal
-The goal of this project is to create a simple android application to detect the face Door opening of the fridge and triggering the front camera to capture the face of the person accessing the fridge along with a web application to keep log of the accessed users.We could achieve this goal using HTML, CSS, ANGULARJS, NODEJS, MYSQL, EXPRESS for the web application and Google Vision API, Android Studio, JAVA for the android application. The goals we met were:<br>
+# Smart Fridge App Report 
 
-[X] Creating a nice, easy-to-use user interface for the client-side (via Bootstrap);<br>
-[X] Allow users to register for an account;<br>
-[X] Send welcome emails to users;<br>
-[X] Allow users to change their passwords through their profile page;<br>
-[X] Allow users to sign in and sign out of an account easily;<br>
-[X] Simple mobile application showing the status of the Door open/closed;<br>
-[X] Face Detection Service allowing to detect the face using google vision api;<br>
-[X] Interface allowing to capture the face and other expressions;<br>
-[X] Real-time upadting of the server on accessing the image;<br>
-[X] Some goals that we wanted to meet, but didn't in the allotted time were:<br>
+# Contributions
++ [Vignesh Dhamodaran] (http://github.com/vignesh24)<br />
++ [Avnesh Reddy Pundru] (http://github.com/Anveshreddy55) <br />
++ [Ragarsha Velmula](http://github.com/vragarsha) <br />
 
-[X] Notification to the authorized user;<br>
-[X] and<br>
-[X] Personalization of user icons.<br>
-[X] Overall, we met most of our goals for this project.<br>
-## Project Design
+# Goal
+ Since now is a time where most of the people upgrade their phones once a year, we are left with one a lot of unused mobile phones around, So we came up with an idea to put the phone to use by a smart way to detect who is using the fridge by utilizing the sensors and modules, and applying what we have learned in the class. Thus, by mounting the phone on the fridge using a dualside magnet and detect the Door opening and capture the face of the person using the camera and show the results in the web application.   <br/>
+
+#  Features
+The app is simple and efficent since it uses an optimal way to detect the door status and an efficent algorithm to detect the faces from the camera source. The app flow starts by mounting the phone in potrait mode to the fridge and Starting the Smart Fridge App. The app greets you with a status of the door and holds the screen for you, Once the door is opened the app launches the face detection Activity where it detects your face and saves it, then the Upload service will upload the images to the web application. When opened the web application the users will be prompted to register if they are first time users or they will be prompted for login if they have been registered, On login the activity page will display the all the user actvity. So User can monitor all the actvities using the web Application.
+
+# Project Design
+
+*Approach*<br />
+------
+*Frameworks and Libraries Used*<br />
+------
+*Design Flow*<br/>
+------
+  + *Mobile Application*<br />
+
+  + *Web Application*<br />
+
+
+*Collaboration*<br />
+------
+*Testing*<br />
+------
+*Problems Faced*<br />
+------
+*Bug Fixes and Improvements*<br />
+------
+
+# File Structure 
+
+
+# Project Evaluation
+
+
+# References
+
