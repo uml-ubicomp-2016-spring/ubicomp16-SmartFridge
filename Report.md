@@ -93,44 +93,83 @@ Sample 2<br />
 ------
 <strong>Activities:</strong><br />
 + SensorActivity.java
+  + Vignesh Dhamodaran
+  + This activity manages the sensors and does the Door open/close detection.
 + IntentManager.java
+  + Vignesh Dhamodaran 
+  + This class maintains the Intent calls and implements synchronised lock procedure.
 + FaceDetectionActivity.java
+  + Vignesh Dhamodaran
+  + This Activity Does the Face Detection by gathering the camera source and face graphics.
 + UploadActivity.java
+  + Anvesh Reddy Pundru
+  + This Service performs the image capture and server upload using HttpConnectionClient.
 + CanvasGraphics.java
+  + Vignesh Dhamodaran
+  + This class provides the graphic definition on canvas for face.
 + PreviewCamera.java
+  + Anvesh reddy pundru 
+  + This class provides the layout for camera to display.
 + CanvasGraphicsEmbedder.java
+  + Vignesh Dhamodaran
+  + Embeddeds Camera source and the graphics together
 <br />
 
 <strong>Layout</strong><br />
 + activity_sensor.xml
+  + Vignesh Dhamodaran
+  + Main Activity Layout for Sensor activity
 + content_sensor.xml
+  + Vignesh Dhamodaran 
+  + Contains Contents for Activity_main.xml
 + main.xml
-+ menu_sensor
-+ sensor
-+ strings.xml
+  + Anvesh Reddy Pundru 
+  + Contains Camera preview for face detection
 <br />
+
++ AndroidManifest.xml
+  + Vignesh Dhamodaran
+  + Contains sensor permissions and activities.
 
 *Web Application*<br />
 ------
 
 <strong>Views</strong><br/>
 + index.html
+  + Anvesh Reddy Pundru
+  + Main UI Page
 + register.view.html
+  + Ragarsha Velmula
+  + Interface for the Users to Register
 + login.view.html
+  + Ragarsha Velmula
+  + Interface for the Users to login and reset password
 + home.view.html
+  + Ragarsha Velmula
+  + User Interface to show uploaded Images.
 <br />
 
 <strong>Controllers</strong><br />
 + Server.js
+  + Ragarsha Velmula 
 + app.js
+  + Ragarsha Velmula
 + register.controller.js
+  + Anvesh Reddy Pundru
 + login.controller.js
+  + Ragarsha Velmula
 + home.controller.js
+  + Ragarsha Velmula
 + authentication.service.js
+  + Ragarsha Velmula
 + core.js
+  + Ragarsha Velmula
 + flash.service.js
+  + Ragarsha Velmula
 + user.service.js
+  + Ragarsha Velmula
 + user.service.local-storage.js
+  + Ragarsha Velmula
 
 
 # Project Evaluation
