@@ -152,24 +152,34 @@ Sample 2<br />
 <strong>Controllers</strong><br />
 + Server.js
   + Ragarsha Velmula 
+  + Creating a local host to run the web application
 + app.js
   + Ragarsha Velmula
+  + Main controller connecting to the other modules of the web application
 + register.controller.js
   + Anvesh Reddy Pundru
+  + Methods allowing users to register
 + login.controller.js
   + Ragarsha Velmula
+  + Controls the user login
 + home.controller.js
   + Ragarsha Velmula
+  + Real-time updating of data changes in the database
 + authentication.service.js
   + Ragarsha Velmula
+  + Checking for the authorized users and their credentials
 + core.js
   + Ragarsha Velmula
+  + Assignement of the data imported from the database to the scope variables
 + flash.service.js
   + Ragarsha Velmula
+  + Routing of the layouts based on success/error
 + user.service.js
   + Ragarsha Velmula
+  + Service methods to call the required routes accordingly
 + user.service.local-storage.js
   + Ragarsha Velmula
+  + Functionality for storing the registered users
 
 
 # Project Evaluation
