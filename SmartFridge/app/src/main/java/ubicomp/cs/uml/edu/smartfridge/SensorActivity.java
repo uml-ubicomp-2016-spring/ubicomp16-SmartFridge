@@ -8,6 +8,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -59,6 +60,9 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
 
     //Low Pass Filter Values
     static final float ALPHA = 0.2f;
+
+    //Wake Lock
+    PowerManager.WakeLock wl;
 
     //Open Event
     private float doorVel;
@@ -157,6 +161,9 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
     @Override
     public void onSensorChanged(SensorEvent event) {
             try{
+                PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+                wl = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "My Tag");
+                wl.acquire();
 
                 NumberFormat nf = NumberFormat.getNumberInstance();
                 nf.setMaximumFractionDigits(1);
@@ -236,9 +243,13 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
                     Log.d("sensor", "got other sensor event " + event.sensor.getType());
                 }
 
+
             }
             catch (Throwable th){
                 th.printStackTrace();
+            }
+            finally {
+                wl.release();
             }
         }
 
