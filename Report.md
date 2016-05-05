@@ -5,6 +5,9 @@
 + [Avnesh Reddy Pundru] (http://github.com/Anveshreddy55) <br />
 + [Ragarsha Velmula](http://github.com/vragarsha) <br />
 
+# Adviser
+* [Guanling Chen](https://github.com/gchenhub)
+
 # Goal
  Since now is a time where most of the people upgrade their phones once a year, we are left with a lot of unused mobile phones around, So we came up with an idea to put the phone to use by a smart way to detect who is using the fridge by utilizing the sensors and modules, and applying what we have learned in the class. Thus, by mounting the phone on the fridge using a dualside magnet and detect the Door opening and capture the face of the person using the camera and show the results in the web application.   <br/>
 
