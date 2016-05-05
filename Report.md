@@ -6,7 +6,7 @@
 + [Ragarsha Velmula](http://github.com/vragarsha) <br />
 
 # Goal
- Since now is a time where most of the people upgrade their phones once a year, we are left with one a lot of unused mobile phones around, So we came up with an idea to put the phone to use by a smart way to detect who is using the fridge by utilizing the sensors and modules, and applying what we have learned in the class. Thus, by mounting the phone on the fridge using a dualside magnet and detect the Door opening and capture the face of the person using the camera and show the results in the web application.   <br/>
+ Since now is a time where most of the people upgrade their phones once a year, we are left with a lot of unused mobile phones around, So we came up with an idea to put the phone to use by a smart way to detect who is using the fridge by utilizing the sensors and modules, and applying what we have learned in the class. Thus, by mounting the phone on the fridge using a dualside magnet and detect the Door opening and capture the face of the person using the camera and show the results in the web application.   <br/>
 
 #  Features
 + Android Application.
@@ -183,4 +183,27 @@ Sample 2<br />
 
 
 # Project Evaluation
+<strong>Reference Materials</strong> <br />
++ We followed the paper [Activity Recognition in the Home Using Simple and Ubiquitous Sensors] (http://web.media.mit.edu/~intille/papers-files/TapiaIntilleLarson04.pdf) as a reference.
++ As this papers notion is to use sensors to make Household devices smarter and use a simple "tape on and forget" quick installation procedure.
+<br/><br />
+
+<strong>Comparison of Approaches</strong> <br /> 
++ The approach in the reference project uses sensors mounted on the devices to detect activity. In our case it will be sensor detecting changes in door state.
++ Our approach has an upper hand over the reference paper because of the efficency in detecting an activity, In our approch we are using efficient ways of Detecting the Door Status and Face.
++ The refence paper uses machine learning to adapt itself to the environment condition which is where our approach does not use any machine learning. so it will be a great addition to our project.
++ Based on the reference and our project we can extend our project as an activity monitor on all possible doors, like a money safe's door, Bedroom or any other door and even as a spy cam if you mount the camera behind an object.
+<br /><br />
+
+<strong>Lessons and Insights </strong> <br />
++ We learned about how to get generalised data form a sensor reading. Especially the usage of magnetometer and how to calculate angles using those data. If realtime physical sensors have an way program and reprogram their working it has so much possibilities, working with these sensors gave us a glimpse of the potential behind IOT.
++ Formulating an efficent way to find the Door state was an application the math we learned in Calculus and Physics working together in a simple day to activity. 
++ We learned about using JNI libraries for object detection and the google api's.
++ Angular and Node made the frontend backend integration easier and gave us the possibility of updating the User Interface with data from the database without reloading the page.
++ Overall the project was an application of what we learned in class.
+
+#References
++ [1] [Activity Recognition in the Home Using Simple and Ubiquitous Sensors](http://web.media.mit.edu/~intille/papers-files/TapiaIntilleLarson04.pdf) by Emmanuel Munguia Tapia Stephen S. Intille Kent Larson.
++ [2] [lowpass filter](https://en.wikipedia.org/wiki/Low-pass_filter#Simple_infinite_impulse_response_filter)
++ [3] [Euler's Angles](https://en.wikipedia.org/wiki/Rotation_formalisms_in_three_dimensions#Conversion_formulae_between_formalisms)
 
