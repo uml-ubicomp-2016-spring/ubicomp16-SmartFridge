@@ -2,12 +2,19 @@
 
 Application allowing to check if the door is closed or open. Through this application as the user opens the door the image is captured.
 
-Demo on [Youtube](https://www.youtube.com/watch?v=GB-xDLorPS0)<br />
+
 
 ## Contributors
 + [Vignesh Dhamodaran] (http://github.com/vignesh24)<br />
 + [Avnesh Reddy Pundru] (http://github.com/Anveshreddy55) <br />
 + [Ragarsha Velmula](http://github.com/vragarsha) <br />
+
+## Video Demo
+
+<a href="https://www.youtube.com/watch?v=GB-xDLorPS0" target="_blank"><img src="ScreenShots/Mobile%20App/2016-05-04%2003.40.12.png" width="40%" height="40%"/></a>
+
+<br />
+Demo on [Youtube](https://www.youtube.com/watch?v=GB-xDLorPS0)<br />
 
 ## Progress 3/28/16 - 4/4/16
 ###Vignesh Dhamodaran
